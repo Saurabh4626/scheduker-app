@@ -1,0 +1,28 @@
+<div>
+    <h2>Calendar</h2>
+    <button (click)="changeMonth(-1)">Previous</button>
+    <button (click)="changeMonth(1)">Next</button>
+  
+    <div class="calendar-grid">
+      <div class="month-label">Current Month Dates</div>
+      <div *ngFor="let day of daysInMonth" 
+           [class.selected]="selectedDate?.toDateString() === day.toDateString()">
+        <div (click)="selectDate(day)">
+          {{ day.getDate() }}
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="selectedDate">
+      <h3>Available Times for {{ selectedDate | date: 'fullDate' }}</h3>
+      <div class="time-slots">
+        <div class="time-slot" *ngFor="let time of availableTimes" 
+             [ngClass]="{'booked': !appointmentService.isTimeAvailable(time), 'available': appointmentService.isTimeAvailable(time)}" 
+             (click)="selectTime(time)">
+          {{ time | date:'shortTime' }}
+        </div>
+      </div>
+      <app-booking-form *ngIf="selectedTime" [time]="selectedTime"></app-booking-form>
+    </div>
+  </div>
+  

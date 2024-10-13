@@ -1,0 +1,7 @@
+<div class="booking-container">
+    <h2>Book Appointment</h2>
+    <p>Selected Time: {{ time | date:'shortTime' }}</p>
+    <input type="text" [(ngModel)]="name" placeholder="Your Name" />
+    <input type="email" [(ngModel)]="email" placeholder="Your Email" />
+    <button (click)="book()">Book</button>
+</div>

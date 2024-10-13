@@ -1,0 +1,102 @@
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.month-label {
+    grid-column: span 7;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.calendar-grid>div {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+}
+
+.calendar-grid div:hover {
+    background-color: #e7f3ff;
+}
+
+.selected {
+    background-color: #cce5ff;
+    border-color: #004085;
+}
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.time-slot {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: calc(20% - 5px);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.85em;
+}
+
+.time-slot:hover {
+    background-color: #e7f3ff;
+}
+
+.booked {
+    background-color: #f8d7da;
+    color: #721c24;
+    pointer-events: none;
+}
+
+.available {
+    background-color: #cce5ff;
+}
+
+
+.calendar-grid div.current-date {
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .calendar-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .time-slot {
+        width: calc(50% - 5px);
+    }
+}
+
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
